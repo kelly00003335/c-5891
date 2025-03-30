@@ -5,10 +5,8 @@ import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Button } from './ui/button';
 import PaymentMethodSelector from './PaymentMethodSelector';
-import DepositStatus from './DepositStatus';
-import TransactionHistory from './TransactionHistory';
+import PaymentInstructions from './PaymentInstructions';
 import NavigationBar from './NavigationBar';
-import PaymentInstructions from "./PaymentInstructions";
 
 const DepositForm = () => {
   const [amount, setAmount] = useState('');
@@ -38,6 +36,7 @@ const DepositForm = () => {
       setAmountError(true);
       return;
     }
+    setShowInstructions(true);
     setDepositStatus('processing');
     setTimeout(() => {
       setDepositStatus(Math.random() > 0.2 ? 'completed' : 'failed');
@@ -87,6 +86,7 @@ const DepositForm = () => {
                     <Label htmlFor="phone" className="text-white">Phone Number</Label>
                     <Input 
                       id="phone"
+                      type="tel"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="bg-white/10 border-white/20 text-white"
@@ -123,10 +123,6 @@ const DepositForm = () => {
               </div>
             </form>
           </Card>
-          <div className="space-y-8">
-            <DepositStatus status={depositStatus} />
-            <TransactionHistory />
-          </div>
         </div>
       )}
     </>
