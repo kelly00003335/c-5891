@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card } from './ui/card';
 import { Input } from './ui/input';
@@ -20,7 +19,7 @@ const DepositForm = () => {
   const [amountError, setAmountError] = useState(false);
 
   const handleShowInstructions = () => {
-    setShowInstructions(true);
+    setShowInstructions(!showInstructions); // Toggle instructions
   };
 
   useEffect(() => {
@@ -62,7 +61,7 @@ const DepositForm = () => {
                     required
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="email" className="text-white">Email Address</Label>
                   <Input 
@@ -74,7 +73,7 @@ const DepositForm = () => {
                     required
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="phone" className="text-white">Phone Number</Label>
                   <Input 
@@ -124,6 +123,16 @@ const DepositForm = () => {
               </Button>
             </div>
           </form>
+          {showInstructions && (
+            <div className="mt-4">
+              <p className="text-white">Deposit Instructions:</p>
+              <ul className="list-disc list-inside text-white">
+                <li>Step 1: ...</li>
+                <li>Step 2: ...</li>
+                <li>Step 3: ...</li>
+              </ul>
+            </div>
+          )}
         </Card>
         <div className="space-y-8">
           <DepositStatus status={depositStatus} />
