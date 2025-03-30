@@ -20,7 +20,7 @@ const PaymentMethodSelector = ({ paymentMethod, setPaymentMethod }: PaymentMetho
           <RadioGroupItem value="mpesa" id="mpesa" className="text-white" />
           <Label htmlFor="mpesa" className="text-white cursor-pointer flex-1">M-Pesa</Label>
           <div className="bg-green-500/20 px-3 py-1 rounded text-xs text-green-300">Recommended</div>
-          <img src="/images/mpesa-logo.png" alt="M-Pesa" className="h-8 w-8 object-contain" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg" alt="M-Pesa" className="h-8 w-8 object-contain" />
         </div>
         
         <div className="flex items-center space-x-2 bg-white/5 p-3 rounded-lg hover:bg-white/10 transition-colors">
