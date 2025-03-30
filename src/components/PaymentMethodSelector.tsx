@@ -26,7 +26,7 @@ const PaymentMethodSelector = ({ paymentMethod, setPaymentMethod }: PaymentMetho
         <div className="flex items-center space-x-2 bg-white/5 p-3 rounded-lg hover:bg-white/10 transition-colors">
           <RadioGroupItem value="airtel" id="airtel" className="text-white" />
           <Label htmlFor="airtel" className="text-white cursor-pointer flex-1">Airtel Money</Label>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Airtel_Money.svg/320px-Airtel_Money.svg.png" alt="Airtel Money" className="h-8" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Airtel_logo.svg" alt="Airtel Money" className="h-8" />
         </div>
         
         <div className="flex items-center space-x-2 bg-white/5 p-3 rounded-lg hover:bg-white/10 transition-colors">
