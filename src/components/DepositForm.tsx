@@ -19,7 +19,7 @@ const DepositForm = () => {
   const [amountError, setAmountError] = useState(false);
 
   const handleShowInstructions = () => {
-    setShowInstructions(!showInstructions); // Toggle instructions
+    setShowInstructions(true);
   };
 
   useEffect(() => {
@@ -45,9 +45,19 @@ const DepositForm = () => {
   return (
     <>
       <NavigationBar onShowInstructions={handleShowInstructions} />
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <Card className="p-6 glass-effect">
-          <form onSubmit={handleSubmit}>
+      {showInstructions ? (
+        <PaymentInstructions 
+          paymentMethod={selectedPayment}
+          amount={amount}
+          referenceId=""
+          status={depositStatus}
+          exchangeRate={145}
+          onBack={() => setShowInstructions(false)}
+        />
+      ) : (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <Card className="p-6 glass-effect">
+            <form onSubmit={handleSubmit}>
             <div className="space-y-6">
               {/* User Details */}
               <div className="space-y-4">
@@ -123,22 +133,13 @@ const DepositForm = () => {
               </Button>
             </div>
           </form>
-          {showInstructions && (
-            <div className="mt-4">
-              <p className="text-white">Deposit Instructions:</p>
-              <ul className="list-disc list-inside text-white">
-                <li>Step 1: ...</li>
-                <li>Step 2: ...</li>
-                <li>Step 3: ...</li>
-              </ul>
-            </div>
-          )}
         </Card>
         <div className="space-y-8">
           <DepositStatus status={depositStatus} />
           <TransactionHistory />
         </div>
       </div>
+      )}
     </>
   );
 };

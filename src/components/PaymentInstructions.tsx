@@ -7,6 +7,7 @@ interface PaymentInstructionsProps {
   referenceId: string;
   status: string;
   exchangeRate: number;
+  onBack: () => void;
 }
 
 const PaymentInstructions = ({ 
@@ -137,7 +138,7 @@ const PaymentInstructions = ({
       <div className="mt-6">
         <Button 
           variant="outline" 
-          onClick={() => window.location.reload()}
+          onClick={onBack}
           className="text-white border-white/20 hover:bg-white/10"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
