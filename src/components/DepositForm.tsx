@@ -7,7 +7,7 @@ import PaymentMethodSelector from './PaymentMethodSelector';
 import DepositStatus from './DepositStatus';
 import TransactionHistory from './TransactionHistory';
 import NavigationBar from './NavigationBar';
-import PaymentInstructions from "./PaymentInstructions"; // Added import
+import PaymentInstructions from "./PaymentInstructions";
 
 const DepositForm = () => {
   const [amount, setAmount] = useState('');
@@ -59,87 +59,87 @@ const DepositForm = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <Card className="p-6 glass-effect">
             <form onSubmit={handleSubmit}>
-            <div className="space-y-6">
-              {/* User Details */}
-              <div className="space-y-4">
-                <div>
-                  <Label htmlFor="fullName" className="text-white">Full Name</Label>
+              <div className="space-y-6">
+                {/* User Details */}
+                <div className="space-y-4">
+                  <div>
+                    <Label htmlFor="fullName" className="text-white">Full Name</Label>
+                    <Input 
+                      id="fullName"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      className="bg-white/10 border-white/20 text-white"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="email" className="text-white">Email Address</Label>
+                    <Input 
+                      id="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="bg-white/10 border-white/20 text-white"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="phone" className="text-white">Phone Number</Label>
+                    <Input 
+                      id="phone"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="bg-white/10 border-white/20 text-white"
+                      required
+                    />
+                  </div>
+                </div>
+
+                {/* Amount */}
+                <div className="mb-6">
+                  <Label htmlFor="amount" className="text-white">Deposit Amount (USD)</Label>
                   <Input 
-                    id="fullName"
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
+                    id="amount"
+                    type="number"
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
                     className="bg-white/10 border-white/20 text-white"
+                    placeholder="Minimum $10"
                     required
+                  />
+                  {amountError && (
+                    <p className="text-red-400 text-sm mt-1">
+                      Minimum deposit amount is $10
+                    </p>
+                  )}
+                </div>
+
+                {/* Payment Method Selection */}
+                <div className="mb-6">
+                  <Label className="text-white mb-2 block">Select Payment Method</Label>
+                  <PaymentMethodSelector 
+                    selected={selectedPayment} 
+                    onSelect={setSelectedPayment} 
                   />
                 </div>
 
-                <div>
-                  <Label htmlFor="email" className="text-white">Email Address</Label>
-                  <Input 
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="bg-white/10 border-white/20 text-white"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="phone" className="text-white">Phone Number</Label>
-                  <Input 
-                    id="phone"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="bg-white/10 border-white/20 text-white"
-                    required
-                  />
-                </div>
+                <Button 
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black"
+                  disabled={!amount || amountError}
+                >
+                  Proceed to Payment
+                </Button>
               </div>
-
-              {/* Amount */}
-              <div className="mb-6">
-                <Label htmlFor="amount" className="text-white">Deposit Amount (USD)</Label>
-                <Input 
-                  id="amount"
-                  type="number"
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
-                  className="bg-white/10 border-white/20 text-white"
-                  placeholder="Minimum $10"
-                  required
-                />
-                {amountError && (
-                  <p className="text-red-400 text-sm mt-1">
-                    Minimum deposit amount is $10
-                  </p>
-                )}
-              </div>
-
-              {/* Payment Method Selection */}
-              <div className="mb-6">
-                <Label className="text-white mb-2 block">Select Payment Method</Label>
-                <PaymentMethodSelector 
-                  selected={selectedPayment} 
-                  onSelect={setSelectedPayment} 
-                />
-              </div>
-
-              <Button 
-                type="submit"
-                className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black"
-                disabled={!amount || amountError}
-              >
-                Proceed to Payment
-              </Button>
-            </div>
-          </form>
-        </Card>
-        <div className="space-y-8">
-          <DepositStatus status={depositStatus} />
-          <TransactionHistory />
+            </form>
+          </Card>
+          <div className="space-y-8">
+            <DepositStatus status={depositStatus} />
+            <TransactionHistory />
+          </div>
         </div>
-      </div>
       )}
     </>
   );
