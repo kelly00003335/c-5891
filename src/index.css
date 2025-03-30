@@ -36,3 +36,46 @@
   border: none;
   cursor: pointer;
 }
+
+.timer-display {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.instructions-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+//React Component Implementation
+import React from 'react';
+
+const PaymentInstructions = () => {
+  return (
+    <div className="instructions-section">
+      <h2>Deposit Instructions – Vertex Tradings</h2>
+      <p>Follow these steps to complete your deposit securely:</p>
+      <h3>Confirm Your Deposit Details</h3>
+      <p>Double-check your deposit amount and selected payment method.</p>
+      <p>The minimum deposit is $10 (KES equivalent).</p>
+      <h3>Initiate Payment</h3>
+      <p>Click "Proceed to Payment" to be redirected to Pesapal's secure payment gateway.</p>
+      <h3>Approve the Payment (Mobile Money Users – M-Pesa/Airtel Money)</h3>
+      <p>Keep your phone nearby – a payment prompt will appear.</p>
+      <p>Enter your M-Pesa or Airtel Money PIN when prompted.</p>
+      <h3>Card Payments (Visa/MasterCard Users)</h3>
+      <p>Follow the on-screen steps to enter your card details securely.</p>
+      <p>Complete any verification steps required by your bank, such as OTP confirmation.</p>
+      <h3>Real-Time Payment Tracking</h3>
+      <p>Your payment status updates instantly on the Deposit Progress Tracker.</p>
+      <p>If successful, your deposit is automatically credited to your account.</p>
+      <h3>Need Help?</h3>
+      <p>If you do not receive a payment prompt, check your mobile network and retry.</p>
+      <p>Contact Vertex Tradings Support if you experience any issues.</p>
+    </div>
+  );
+};
+
+export default PaymentInstructions;
