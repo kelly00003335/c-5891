@@ -14,9 +14,9 @@ import TransactionHistory from "./TransactionHistory";
 
 // Mock user data - in a real app this would come from auth
 const mockUser = {
-  fullName: "John Doe",
-  email: "john.doe@example.com",
-  phone: "+254 712 345 678",
+  fullName: "",
+  email: "",
+  phone: "+254 ",
   isLoggedIn: true
 };
 
