@@ -1,0 +1,29 @@
+DepositForm.tsx:49 Uncaught ReferenceError: PaymentInstructions is not defined
+    at DepositForm (DepositForm.tsx:49:10)
+DepositForm.tsx:49 Uncaught ReferenceError: PaymentInstructions is not defined
+    at DepositForm (DepositForm.tsx:49:10)
+chunk-R6S4VRB5.js?v=9b3a17ce:14032 The above error occurred in the <DepositForm> component:
+
+    at DepositForm (https://b412e0cc-3f59-4fbb-b5a8-0bbc14a6da35-00-2wqo3xhhymo0u.janeway.replit.dev/src/components/DepositForm.tsx?t=1743339642261:22:33)
+    at div
+    at div
+    at div
+    at Deposit
+    at RenderedRoute (https://b412e0cc-3f59-4fbb-b5a8-0bbc14a6da35-00-2wqo3xhhymo0u.janeway.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=9b3a17ce:4069:5)
+    at Routes (https://b412e0cc-3f59-4fbb-b5a8-0bbc14a6da35-00-2wqo3xhhymo0u.janeway.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=9b3a17ce:4508:5)
+    at Router (https://b412e0cc-3f59-4fbb-b5a8-0bbc14a6da35-00-2wqo3xhhymo0u.janeway.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=9b3a17ce:4451:15)
+    at BrowserRouter (https://b412e0cc-3f59-4fbb-b5a8-0bbc14a6da35-00-2wqo3xhhymo0u.janeway.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=9b3a17ce:5196:5)
+    at Provider (https://b412e0cc-3f59-4fbb-b5a8-0bbc14a6da35-00-2wqo3xhhymo0u.janeway.replit.dev/node_modules/.vite/deps/chunk-ZSMWV6XM.js?v=9b3a17ce:35:15)
+    at TooltipProvider (https://b412e0cc-3f59-4fbb-b5a8-0bbc14a6da35-00-2wqo3xhhymo0u.janeway.replit.dev/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=9b3a17ce:56:5)
+    at QueryClientProvider (https://b412e0cc-3f59-4fbb-b5a8-0bbc14a6da35-00-2wqo3xhhymo0u.janeway.replit.dev/node_modules/.vite/deps/@tanstack_react-query.js?v=9b3a17ce:2794:3)
+    at App
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+chunk-R6S4VRB5.js?v=9b3a17ce:9129 Uncaught ReferenceError: PaymentInstructions is not defined
+    at DepositForm (DepositForm.tsx:49:10)
+
+chunk-R6S4VRB5.js?v=9b3a17ce:3750 Uncaught ReferenceError: PaymentInstructions is not defined
+    at DepositForm (DepositForm.tsx:49:10)
+﻿
+
