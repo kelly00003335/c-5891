@@ -10,6 +10,14 @@ import DepositTracker from "./DepositTracker";
 import TransactionHistory from "./TransactionHistory";
 import PaymentInstructions from "./PaymentInstructions";
 
+// Mock user data - in a real app this would come from auth
+const mockUser = {
+  fullName: "John Doe",
+  email: "john.doe@example.com",
+  phone: "+254 712 345 678",
+  isLoggedIn: true
+};
+
 // Exchange rate - in a real app this would come from an API
 const exchangeRate = 130; // 1 USD = 130 KES (example)
 
