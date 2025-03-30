@@ -10,6 +10,8 @@ import PaymentInstructions from './PaymentInstructions';
 import DepositStatus from "./DepositStatus";
 import TransactionHistory from "./TransactionHistory";
 
+import NavigationBar from './NavigationBar';
+
 const DepositForm = () => {
   const [amount, setAmount] = useState('');
   const [selectedPayment, setSelectedPayment] = useState('mpesa');
@@ -21,6 +23,10 @@ const DepositForm = () => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+
+  const handleShowInstructions = () => {
+    setShowInstructions(true);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,7 +50,9 @@ const DepositForm = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <>
+      <NavigationBar onShowInstructions={handleShowInstructions} />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <Card className="p-6 glass-effect">
         <form onSubmit={handleSubmit}>
           <div className="space-y-6">
@@ -133,7 +141,7 @@ const DepositForm = () => {
         <DepositStatus status={depositStatus} />
         <TransactionHistory />
       </div>
-    </div>
+    </>
   );
 };
 
