@@ -7,6 +7,7 @@ import PaymentMethodSelector from './PaymentMethodSelector';
 import DepositStatus from './DepositStatus';
 import TransactionHistory from './TransactionHistory';
 import NavigationBar from './NavigationBar';
+import PaymentInstructions from "./PaymentInstructions"; // Added import
 
 const DepositForm = () => {
   const [amount, setAmount] = useState('');
