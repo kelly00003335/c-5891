@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -25,4 +25,14 @@
 
 .hover-lift {
   @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+.timer-button {
+  margin: 10px 0;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #FFD700;
+  color: black;
+  border: none;
+  cursor: pointer;
 }
