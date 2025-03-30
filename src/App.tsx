@@ -3,9 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Transactions from "./pages/Transactions";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Deposit from "./pages/Deposit";
 
 const queryClient = new QueryClient();
@@ -17,8 +15,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/transactions" element={<Transactions />} />
+          <Route path="/" element={<Navigate to="/deposit" replace />} />
           <Route path="/deposit" element={<Deposit />} />
         </Routes>
       </BrowserRouter>
