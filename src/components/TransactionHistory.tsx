@@ -1,40 +1,19 @@
-
-import { Card } from "@/components/ui/card";
 import { CheckCircle, Clock, XCircle } from "lucide-react";
+import { Card } from "@/components/ui/card";
 
-const TransactionHistory = () => {
-  // Mock transaction data - in a real app, this would come from an API
-  const transactions = [
-    {
-      id: "VTX123456",
-      date: "2024-07-12",
-      amount: "$150.00",
-      method: "M-Pesa",
-      status: "completed"
-    },
-    {
-      id: "VTX789012",
-      date: "2024-07-05",
-      amount: "$75.00",
-      method: "Credit Card",
-      status: "completed"
-    },
-    {
-      id: "VTX345678",
-      date: "2024-06-28",
-      amount: "$200.00",
-      method: "Airtel Money",
-      status: "failed"
-    },
-    {
-      id: "VTX901234",
-      date: "2024-06-15",
-      amount: "$50.00",
-      method: "M-Pesa",
-      status: "completed"
-    }
-  ];
+interface Transaction {
+  id: string;
+  date: string;
+  amount: string;
+  method: string;
+  status: string;
+}
 
+interface TransactionHistoryProps {
+  transactions: Transaction[];
+}
+
+const TransactionHistory = ({ transactions = [] }: TransactionHistoryProps) => {
   const getStatusIcon = (status: string) => {
     if (status === "completed") {
       return <CheckCircle className="h-4 w-4 text-green-500" />;
@@ -57,7 +36,7 @@ const TransactionHistory = () => {
   return (
     <Card className="p-6 glass-effect">
       <h3 className="text-2xl font-semibold text-white mb-6">Transaction History</h3>
-      
+
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
@@ -95,7 +74,7 @@ const TransactionHistory = () => {
           </tbody>
         </table>
       </div>
-      
+
       {transactions.length === 0 && (
         <div className="text-center py-6 text-white/50">
           No transaction history available
