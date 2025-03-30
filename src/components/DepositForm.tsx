@@ -24,6 +24,11 @@ const mockUser = {
 const exchangeRate = 130; // 1 USD = 130 KES (example)
 
 const DepositForm = () => {
+  const [userDetails, setUserDetails] = useState({
+    fullName: mockUser.fullName,
+    email: mockUser.email,
+    phone: mockUser.phone
+  });
   const [amount, setAmount] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("mpesa");
   const [depositStatus, setDepositStatus] = useState("pending");
@@ -46,6 +51,14 @@ const DepositForm = () => {
     const uniqueId = `VTX${Date.now().toString().slice(-6)}${Math.floor(Math.random() * 1000)}`;
     setReferenceId(uniqueId);
   }, []);
+
+  const handleUserDetailsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target;
+    setUserDetails(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -107,9 +120,9 @@ const DepositForm = () => {
                     <Label htmlFor="fullName" className="text-white">Full Name</Label>
                     <Input 
                       id="fullName" 
-                      value={mockUser.fullName} 
+                      value={userDetails.fullName} 
+                      onChange={handleUserDetailsChange}
                       className="bg-white/10 border-white/20 text-white"
-                      readOnly={mockUser.isLoggedIn}
                     />
                   </div>
                   
@@ -118,9 +131,9 @@ const DepositForm = () => {
                     <Input 
                       id="email" 
                       type="email" 
-                      value={mockUser.email} 
+                      value={userDetails.email} 
+                      onChange={handleUserDetailsChange}
                       className="bg-white/10 border-white/20 text-white"
-                      readOnly={mockUser.isLoggedIn}
                     />
                   </div>
                   
@@ -128,9 +141,9 @@ const DepositForm = () => {
                     <Label htmlFor="phone" className="text-white">Phone Number</Label>
                     <Input 
                       id="phone" 
-                      value={mockUser.phone} 
+                      value={userDetails.phone} 
+                      onChange={handleUserDetailsChange}
                       className="bg-white/10 border-white/20 text-white"
-                      readOnly={mockUser.isLoggedIn}
                     />
                   </div>
                 </div>
