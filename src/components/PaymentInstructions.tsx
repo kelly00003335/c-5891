@@ -69,9 +69,17 @@ const PaymentInstructions = ({
             </section>
 
             <section>
-              <h4 className="text-white text-lg mb-3">Initiate Payment</h4>
-              <p className="text-white/70">Click "Proceed to Payment" to be redirected to Pesapal's secure payment gateway.</p>
-            </section>
+                <h4 className="text-white text-lg mb-3">Deposit Instructions</h4>
+                <ul className="space-y-2 text-white/70">
+                  <li>1. Enter your desired deposit amount (minimum $10)</li>
+                  <li>2. Select your preferred payment method (M-Pesa, Airtel Money, or Card)</li>
+                  <li>3. Fill in your personal details (name, email, phone number)</li>
+                  <li>4. Click "Proceed to Payment" to initiate the transaction</li>
+                  <li>5. For mobile money, you'll receive a prompt on your phone</li>
+                  <li>6. Enter your PIN to confirm the payment</li>
+                  <li>7. Wait for confirmation and your balance will update automatically</li>
+                </ul>
+              </section>
 
             {(paymentMethod === "mpesa" || paymentMethod === "airtel") && (
               <section>
