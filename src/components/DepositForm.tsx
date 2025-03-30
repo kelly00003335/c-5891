@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -62,7 +61,7 @@ const DepositForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!amount || parseFloat(amount) < 10) {
       setAmountError(true);
       toast({
@@ -72,19 +71,19 @@ const DepositForm = () => {
       });
       return;
     }
-    
+
     // Show payment instructions
     setShowInstructions(true);
-    
+
     // In a real app, this would trigger the payment API
     // Simulate status changes for demo purposes
     setDepositStatus("processing");
-    
+
     toast({
       title: "Processing payment",
       description: "Your payment is being processed",
     });
-    
+
     setTimeout(() => {
       // 80% chance of success for demo
       if (Math.random() > 0.2) {
@@ -113,7 +112,7 @@ const DepositForm = () => {
             <div className="space-y-6">
               <div>
                 <h3 className="text-2xl font-semibold text-white mb-6">Deposit Details</h3>
-                
+
                 {/* User Details */}
                 <div className="space-y-4 mb-6">
                   <div>
@@ -125,7 +124,7 @@ const DepositForm = () => {
                       className="bg-white/10 border-white/20 text-white"
                     />
                   </div>
-                  
+
                   <div>
                     <Label htmlFor="email" className="text-white">Email</Label>
                     <Input 
@@ -136,7 +135,7 @@ const DepositForm = () => {
                       className="bg-white/10 border-white/20 text-white"
                     />
                   </div>
-                  
+
                   <div>
                     <Label htmlFor="phone" className="text-white">Phone Number</Label>
                     <Input 
@@ -147,7 +146,7 @@ const DepositForm = () => {
                     />
                   </div>
                 </div>
-                
+
                 {/* Amount */}
                 <div className="mb-6">
                   <Label htmlFor="amount" className="text-white">Deposit Amount (USD)</Label>
@@ -171,13 +170,13 @@ const DepositForm = () => {
                     </p>
                   )}
                 </div>
-                
+
                 {/* Payment Method */}
                 <PaymentMethodSelector 
                   paymentMethod={paymentMethod}
                   setPaymentMethod={setPaymentMethod}
                 />
-                
+
                 <Button 
                   type="submit" 
                   className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black"
@@ -200,7 +199,7 @@ const DepositForm = () => {
           />
         </Card>
       )}
-      
+
       <div className="space-y-8">
         <DepositStatus status={depositStatus} />
         <TransactionHistory />
