@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Card } from './ui/card';
-import { Input } from './ui/input';
-import { Label } from './ui/label';
-import { Button } from './ui/button';
-import PaymentMethodSelector from './PaymentMethodSelector';
-import DepositStatus from './DepositStatus';
-import TransactionHistory from './TransactionHistory';
+import { useState, useEffect } from 'react';
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import NavigationBar from './NavigationBar';
-import PaymentInstructions from "./PaymentInstructions";
+import PaymentInstructions from './PaymentInstructions';
 
 const DepositForm = () => {
   const [amount, setAmount] = useState('');
@@ -18,10 +15,6 @@ const DepositForm = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [amountError, setAmountError] = useState(false);
-
-  const handleShowInstructions = () => {
-    setShowInstructions(true);
-  };
 
   useEffect(() => {
     if (amount && parseFloat(amount) < 10) {
@@ -43,6 +36,10 @@ const DepositForm = () => {
     }, 5000);
   };
 
+  const handleShowInstructions = () => {
+    setShowInstructions(true);
+  };
+
   return (
     <>
       <NavigationBar onShowInstructions={handleShowInstructions} />
@@ -50,7 +47,7 @@ const DepositForm = () => {
         <PaymentInstructions 
           paymentMethod={selectedPayment}
           amount={amount}
-          referenceId=""
+          referenceId="VTX123456"
           status={depositStatus}
           exchangeRate={145}
           onBack={() => setShowInstructions(false)}
@@ -60,53 +57,45 @@ const DepositForm = () => {
           <Card className="p-6 glass-effect">
             <form onSubmit={handleSubmit}>
               <div className="space-y-6">
-                {/* User Details */}
-                <div className="space-y-4">
-                  <div>
-                    <Label htmlFor="fullName" className="text-white">Full Name</Label>
-                    <Input 
-                      id="fullName"
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      className="bg-white/10 border-white/20 text-white"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="email" className="text-white">Email Address</Label>
-                    <Input 
-                      id="email"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="bg-white/10 border-white/20 text-white"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="phone" className="text-white">Phone Number</Label>
-                    <Input 
-                      id="phone"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      className="bg-white/10 border-white/20 text-white"
-                      required
-                    />
-                  </div>
+                <div>
+                  <Label htmlFor="fullName" className="text-white">Full Name</Label>
+                  <Input 
+                    id="fullName"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    className="bg-white/10 border-white/20 text-white"
+                    required
+                  />
                 </div>
-
-                {/* Amount */}
-                <div className="mb-6">
-                  <Label htmlFor="amount" className="text-white">Deposit Amount (USD)</Label>
+                <div>
+                  <Label htmlFor="email" className="text-white">Email</Label>
+                  <Input 
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="bg-white/10 border-white/20 text-white"
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="phone" className="text-white">Phone Number</Label>
+                  <Input 
+                    id="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="bg-white/10 border-white/20 text-white"
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="amount" className="text-white">Amount (USD)</Label>
                   <Input 
                     id="amount"
                     type="number"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
                     className="bg-white/10 border-white/20 text-white"
-                    placeholder="Minimum $10"
                     required
                   />
                   {amountError && (
@@ -115,19 +104,9 @@ const DepositForm = () => {
                     </p>
                   )}
                 </div>
-
-                {/* Payment Method Selection */}
-                <div className="mb-6">
-                  <Label className="text-white mb-2 block">Select Payment Method</Label>
-                  <PaymentMethodSelector 
-                    selected={selectedPayment} 
-                    onSelect={setSelectedPayment} 
-                  />
-                </div>
-
                 <Button 
                   type="submit"
-                  className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black"
+                  className="w-full"
                   disabled={!amount || amountError}
                 >
                   Proceed to Payment
@@ -135,10 +114,6 @@ const DepositForm = () => {
               </div>
             </form>
           </Card>
-          <div className="space-y-8">
-            <DepositStatus status={depositStatus} />
-            <TransactionHistory />
-          </div>
         </div>
       )}
     </>

@@ -1,3 +1,4 @@
+
 import { ArrowLeft, AlertTriangle, CheckCircle, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -15,7 +16,8 @@ const PaymentInstructions = ({
   amount, 
   referenceId, 
   status,
-  exchangeRate
+  exchangeRate,
+  onBack
 }: PaymentInstructionsProps) => {
   const amountKES = (parseFloat(amount) * exchangeRate).toFixed(2);
 
@@ -70,17 +72,17 @@ const PaymentInstructions = ({
             </section>
 
             <section>
-                <h4 className="text-white text-lg mb-3">Deposit Instructions</h4>
-                <ul className="space-y-2 text-white/70">
-                  <li>1. Enter your desired deposit amount (minimum $10)</li>
-                  <li>2. Select your preferred payment method (M-Pesa, Airtel Money, or Card)</li>
-                  <li>3. Fill in your personal details (name, email, phone number)</li>
-                  <li>4. Click "Proceed to Payment" to initiate the transaction</li>
-                  <li>5. For mobile money, you'll receive a prompt on your phone</li>
-                  <li>6. Enter your PIN to confirm the payment</li>
-                  <li>7. Wait for confirmation and your balance will update automatically</li>
-                </ul>
-              </section>
+              <h4 className="text-white text-lg mb-3">Deposit Instructions</h4>
+              <ul className="space-y-2 text-white/70">
+                <li>1. Enter your desired deposit amount (minimum $10)</li>
+                <li>2. Select your preferred payment method (M-Pesa, Airtel Money, or Card)</li>
+                <li>3. Fill in your personal details (name, email, phone number)</li>
+                <li>4. Click "Proceed to Payment" to initiate the transaction</li>
+                <li>5. For mobile money, you'll receive a prompt on your phone</li>
+                <li>6. Enter your PIN to confirm the payment</li>
+                <li>7. Wait for confirmation and your balance will update automatically</li>
+              </ul>
+            </section>
 
             {(paymentMethod === "mpesa" || paymentMethod === "airtel") && (
               <section>
@@ -101,22 +103,6 @@ const PaymentInstructions = ({
                 </ul>
               </section>
             )}
-
-            <section>
-              <h4 className="text-white text-lg mb-3">Real-Time Payment Tracking</h4>
-              <ul className="space-y-2 text-white/70">
-                <li>Your payment status updates instantly on the Deposit Progress Tracker.</li>
-                <li>If successful, your deposit is automatically credited to your account.</li>
-              </ul>
-            </section>
-
-            <section>
-              <h4 className="text-white text-lg mb-3">Need Help?</h4>
-              <ul className="space-y-2 text-white/70">
-                <li>If you do not receive a payment prompt, check your mobile network and retry.</li>
-                <li>Contact Vertex Tradings Support if you experience any issues.</li>
-              </ul>
-            </section>
           </div>
         </div>
 
